@@ -2,12 +2,14 @@
   <div>
     <h1>{{ title }}</h1>
     <ul>
-      <li v-for="book in books">{{book.title}} : {{book.author}}</li>
+      <book-item v-for="book in books" :book="book" />
     </ul>
   </div>
 </template>
 
 <script>
+import BookItem from './BookItem';
+
 export default {
   name: "Book list",
   data: function() {
@@ -19,7 +21,8 @@ export default {
         {title: "Amusing Ourselves to Death", author: "Neil Postman"},
       ]
     }
-  }
+  },
+  components: { BookItem }
 }
 </script>
 
